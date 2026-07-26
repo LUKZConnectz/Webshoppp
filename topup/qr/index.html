@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="th" class="h-full antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#6366f1" />
+    <title>เติมเงินผ่าน QR - Fusions</title>
+    <meta name="description" content="สแกน QR เพื่อเติมเงินผ่าน PromptPay หรือ TrueMoney Wallet และอัปโหลดสลิปเพื่อตรวจสอบอัตโนมัติ" />
+    <meta property="og:title" content="เติมเงินผ่าน QR - Fusions" />
+    <meta property="og:description" content="สแกน QR เพื่อเติมเงินผ่าน PromptPay หรือ TrueMoney Wallet และอัปโหลดสลิปเพื่อตรวจสอบอัตโนมัติ" />
+    <meta property="og:url" content="https://fusions.info/topup/qr" />
+    <meta property="og:site_name" content="Fusions" />
+    <meta property="og:locale" content="th_TH" />
+    <meta property="og:image" content="https://img2.pic.in.th/fusion-6.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Fusions" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="เติมเงินผ่าน QR - Fusions" />
+    <meta name="twitter:description" content="สแกน QR เพื่อเติมเงินผ่าน PromptPay หรือ TrueMoney Wallet และอัปโหลดสลิปเพื่อตรวจสอบอัตโนมัติ" />
+    <meta name="twitter:image" content="https://img2.pic.in.th/fusion-6.png" />
+    <link rel="shortcut icon" href="/img/fusion-logo.png" />
+    <link rel="icon" href="/img/fusion-logo.png" />
+    <link rel="apple-touch-icon" href="/img/fusion-logo.png" />
+    <link rel="preload" as="image" href="https://promptpay.io/0858580563/.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="min-h-full flex flex-col bg-white font-sans">
+    <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-5xl">
+      <div class="bg-white/70 backdrop-blur-xl border border-white/60 rounded-full flex items-center justify-between px-4 md:px-6 py-2.5 shadow-sm">
+        <a class="flex items-center gap-2 shrink-0" href="/" aria-label="Fusions home"><img src="/img/fusion-logo.png" alt="Logo" width="35" height="35" /></a>
+        <div class="hidden lg:flex items-center gap-6">
+          <a class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="/">หน้าหลัก</a>
+          <a class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="/package">แพ็กเกจ</a>
+          <a class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="/leaderboard">อันดับ</a>
+          <a class="text-zinc-900 transition-colors text-sm font-bold" href="/topup" aria-current="page">เติมเงิน</a>
+          <a target="_blank" rel="noopener noreferrer" class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="https://discord.gg/sayabot">ติดต่อเรา</a>
+        </div>
+        <div class="hidden lg:flex items-center gap-2">
+          <a class="text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100/70 rounded-full px-3 py-1.5 transition-all text-sm" href="/login">Login</a>
+          <a class="bg-zinc-900 text-white hover:bg-black rounded-full px-4 py-1.5 transition-all text-sm" href="/register">Register</a>
+        </div>
+        <button class="lg:hidden p-2 text-zinc-600 hover:bg-zinc-100 rounded-full transition-colors" aria-label="Toggle Menu">
+          <span class="block h-0.5 w-6 bg-current mb-1.5"></span><span class="block h-0.5 w-6 bg-current mb-1.5"></span><span class="block h-0.5 w-6 bg-current"></span>
+        </button>
+      </div>
+    </nav>
+
+    <main class="min-h-screen bg-white pt-24 pb-20 px-6">
+      <div class="max-w-4xl mx-auto space-y-8">
+        <a class="flex items-center gap-2 text-zinc-400 hover:text-[#1a2b3c] transition-colors font-medium text-sm group w-fit" href="/topup">
+          <span class="transition-transform group-hover:-translate-x-1" aria-hidden="true">←</span> กลับไปเลือกวิธีการเติมเงิน
+        </a>
+        <div class="space-y-2">
+          <h1 class="text-4xl font-extrabold text-[#1a2b3c] tracking-tight">เติมเงินผ่าน QR</h1>
+          <p class="text-zinc-400 font-medium">สแกน QR เพื่อชำระเงินผ่าน PromptPay หรือ TrueMoney Wallet จากนั้นอัปโหลดสลิปเพื่อตรวจสอบอัตโนมัติ</p>
+        </div>
+        <div class="bg-[#f1f3f5] border border-zinc-100 rounded-2xl p-6">
+          <p class="text-lg font-bold text-[#1a2b3c]">ยอดเงินในบัญชี: <span class="text-indigo-600">฿0.00</span></p>
+        </div>
+        <div class="inline-flex p-1 bg-zinc-100 rounded-2xl">
+          <button class="px-6 py-2.5 rounded-xl text-sm font-black transition-all bg-white text-zinc-900 shadow-sm">PromptPay</button>
+          <button class="px-6 py-2.5 rounded-xl text-sm font-black transition-all text-zinc-400 hover:text-zinc-600">TrueMoney Wallet</button>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <section class="bg-white border border-zinc-100 rounded-3xl p-8 space-y-5 shadow-sm">
+            <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-black">1</div><h2 class="text-lg font-black text-[#1a2b3c]">สแกน QR เพื่อชำระเงิน</h2></div>
+            <label class="text-xs font-bold text-zinc-500 block" for="topup-amount">ระบุจำนวนเงิน (บาท) แล้ว QR จะอัปเดตอัตโนมัติ</label>
+            <input id="topup-amount" type="number" min="1" placeholder="เช่น 50" class="w-full h-11 rounded-2xl border border-zinc-200 px-5 text-sm focus:outline-none focus:border-indigo-400 bg-zinc-50/30" />
+            <div class="flex flex-col items-center gap-3 py-3">
+              <div class="bg-white border border-zinc-100 p-4 rounded-2xl"><img src="https://promptpay.io/0858580563/.png" alt="PromptPay QR" class="w-56 h-56 object-contain" /></div>
+              <div class="text-center space-y-1"><p class="text-xs font-bold text-zinc-400 uppercase tracking-wider">PromptPay</p><button class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-sm font-black transition-all">0858580563 <span aria-hidden="true">⧉</span></button><p class="text-xs text-zinc-500">อิศราวุฒิ อุตอามาตย์</p></div>
+            </div>
+            <p class="text-[11px] text-zinc-400 leading-relaxed">* จำนวนเงินที่เติมจะเท่ากับยอดในสลิปจริง ระบบจะอ่านยอดและเลขอ้างอิงจากสลิปอัตโนมัติ</p>
+          </section>
+          <section class="bg-white border border-zinc-100 rounded-3xl p-8 space-y-5 shadow-sm">
+            <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-black">2</div><h2 class="text-lg font-black text-[#1a2b3c]">อัปโหลดสลิปเพื่อตรวจสอบ</h2></div>
+            <p class="text-sm text-zinc-500 leading-relaxed">เลือกภาพสลิปการโอนเงิน (JPG, PNG, WebP ขนาดไม่เกิน 10MB) ระบบจะตรวจสอบและเติมเงินเข้าวอลเล็ตให้อัตโนมัติ</p>
+            <input id="slip-upload" type="file" accept="image/*" class="hidden" />
+            <label for="slip-upload" class="w-full h-12 rounded-2xl bg-[#0f172a] hover:bg-[#1e293b] text-white font-black flex items-center justify-center gap-2 transition-all cursor-pointer">↑ เลือกภาพสลิป</label>
+            <div class="rounded-2xl border border-zinc-100 bg-zinc-50/50 p-4 text-[11px] text-zinc-500 leading-relaxed space-y-1">
+              <p class="font-bold text-zinc-600">ข้อควรทราบ</p>
+              <p>• สลิป 1 ใบใช้ได้ครั้งเดียว ระบบจะตรวจซ้ำอัตโนมัติ</p>
+              <p>• สลิปต้องโอนให้ 0858580563 เท่านั้น</p>
+              <p>• อัปสลิปได้ 1 ใบ/นาที — หากผิด 3 ครั้งติดกัน ระบบจะพักชั่วคราว 30 นาที</p>
+              <p>• กรณีตรวจไม่สำเร็จ กรุณาถ่ายสลิปให้ชัดและลองใหม่อีกครั้ง</p>
+              <p>• เครดิตที่เติมสำเร็จแล้วจะเข้าวอลเล็ตทันที และอาจไม่สามารถขอคืนเงินได้ตามเงื่อนไข</p>
+              <p>• อ่านรายละเอียดเพิ่มเติมที่ <a class="font-semibold underline" href="/terms">ข้อกำหนดการให้บริการ</a></p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="border-t border-zinc-100 bg-white/80 backdrop-blur-sm mt-auto">
+      <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-zinc-500"><p>© 2026 Fusions. All rights reserved.</p><div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2"><a class="hover:text-zinc-800 transition-colors" href="/terms">Terms</a><a class="hover:text-zinc-800 transition-colors" href="/privacy">Privacy</a><a class="hover:text-zinc-800 transition-colors" href="/cookie-policy">Cookies</a><a class="hover:text-zinc-800 transition-colors" href="/copyright">Copyright</a></div></div>
+    </footer>
+  </body>
+</html>
