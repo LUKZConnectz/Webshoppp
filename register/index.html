@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="th" class="h-full antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#6366f1" />
+    <title>สมัครสมาชิก - Fusions</title>
+    <meta name="description" content="สร้างบัญชี Fusions เพื่อเริ่มสร้างหน้าโปรไฟล์ลิงก์ของคุณ" />
+    <meta property="og:title" content="สมัครสมาชิก - Fusions" />
+    <meta property="og:description" content="สร้างบัญชี Fusions เพื่อเริ่มสร้างหน้าโปรไฟล์ลิงก์ของคุณ" />
+    <meta property="og:url" content="https://fusions.info/register" />
+    <meta property="og:site_name" content="Fusions" />
+    <meta property="og:locale" content="th_TH" />
+    <meta property="og:image" content="https://img2.pic.in.th/fusion-6.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Fusions" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="สมัครสมาชิก - Fusions" />
+    <meta name="twitter:description" content="สร้างบัญชี Fusions เพื่อเริ่มสร้างหน้าโปรไฟล์ลิงก์ของคุณ" />
+    <meta name="twitter:image" content="https://img2.pic.in.th/fusion-6.png" />
+    <link rel="shortcut icon" href="/img/fusion-logo.png" />
+    <link rel="icon" href="/img/fusion-logo.png" />
+    <link rel="apple-touch-icon" href="/img/fusion-logo.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="min-h-full flex flex-col bg-white font-sans">
+    <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-5xl">
+      <div class="bg-white/70 backdrop-blur-xl border border-white/60 rounded-full flex items-center justify-between px-4 md:px-6 py-2.5 shadow-sm">
+        <a class="flex items-center gap-2 shrink-0" href="/" aria-label="Fusions home">
+          <img src="/img/fusion-logo.png" alt="Logo" width="35" height="35" />
+        </a>
+        <div class="hidden lg:flex items-center gap-6">
+          <a class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="/">หน้าหลัก</a>
+          <a class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="/package">แพ็กเกจ</a>
+          <a class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="/leaderboard">อันดับ</a>
+          <a class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="/topup">เติมเงิน</a>
+          <a target="_blank" rel="noopener noreferrer" class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="https://discord.gg/sayabot">ติดต่อเรา</a>
+        </div>
+        <div class="hidden lg:flex items-center gap-2">
+          <a class="text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100/70 rounded-full px-3 py-1.5 transition-all text-sm" href="/login">Login</a>
+          <a class="bg-zinc-900 text-white hover:bg-black rounded-full px-4 py-1.5 transition-all text-sm" href="/register" aria-current="page">Register</a>
+        </div>
+        <button class="lg:hidden p-2 text-zinc-600 hover:bg-zinc-100 rounded-full transition-colors" aria-label="Toggle Menu">
+          <span class="block h-0.5 w-6 bg-current mb-1.5"></span>
+          <span class="block h-0.5 w-6 bg-current mb-1.5"></span>
+          <span class="block h-0.5 w-6 bg-current"></span>
+        </button>
+      </div>
+    </nav>
+
+    <main class="min-h-screen bg-white flex flex-col items-center justify-center px-6 py-12 mt-20">
+      <div class="w-full max-w-md space-y-10">
+        <div class="text-center space-y-3">
+          <h1 class="text-3xl md:text-4xl font-extrabold text-[#1a2b3c] tracking-tight">
+            สร้างบัญชี
+            <span class="bg-gradient-to-r from-orange-400 via-green-400 via-blue-500 to-violet-500 bg-clip-text text-transparent">Fusions</span>
+            ของคุณ
+          </h1>
+          <p class="text-zinc-500 font-medium">สร้างโปรไฟล์ของคุณเพื่อเริ่มใช้งาน</p>
+        </div>
+
+        <form class="space-y-6" action="#" method="post">
+          <div class="space-y-4">
+            <div class="space-y-1.5">
+              <input type="text" name="username" placeholder="ชื่อผู้ใช้" required minlength="3" maxlength="20" pattern="^[a-z0-9_]{3,20}$" title="3-20 ตัว a-z, 0-9, _ เท่านั้น" class="w-full px-5 py-3.5 rounded-2xl border border-zinc-200 bg-zinc-50/30 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-all text-sm" />
+              <p class="text-xs text-zinc-400 px-2">* 3-20 ตัว (a-z, 0-9, _ เท่านั้น) ไม่ซ้ำแบบไม่สนตัวพิมพ์ใหญ่-เล็ก</p>
+            </div>
+            <input type="email" name="email" placeholder="อีเมล" required class="w-full px-5 py-3.5 rounded-2xl border border-zinc-200 bg-zinc-50/30 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-all text-sm" />
+            <div class="space-y-3 relative">
+              <input type="password" name="password" placeholder="รหัสผ่าน (อย่างน้อย 6 ตัวอักษร)" required minlength="6" class="w-full px-5 py-3.5 rounded-2xl border border-zinc-200 bg-zinc-50/30 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-all text-sm" />
+              <div class="flex items-center justify-between gap-1.5 px-1" aria-hidden="true">
+                <div class="h-1.5 flex-1 rounded-full transition-all bg-zinc-200"></div>
+                <div class="h-1.5 flex-1 rounded-full transition-all bg-zinc-200"></div>
+                <div class="h-1.5 flex-1 rounded-full transition-all bg-zinc-200"></div>
+                <div class="h-1.5 flex-1 rounded-full transition-all bg-zinc-200"></div>
+                <div class="h-1.5 flex-1 rounded-full transition-all bg-zinc-200"></div>
+                <span class="text-[10px] text-zinc-400 font-bold ml-2 shrink-0">กรอกรหัสผ่าน</span>
+              </div>
+            </div>
+            <input type="password" name="confirm-password" placeholder="ยืนยันรหัสผ่าน" required minlength="6" class="w-full px-5 py-3.5 rounded-2xl border border-zinc-200 bg-zinc-50/30 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-all text-sm" />
+          </div>
+
+          <div class="flex justify-center">
+            <div id="recaptcha-register" class="flex justify-center"></div>
+          </div>
+
+          <div class="rounded-2xl border border-zinc-200 bg-zinc-50/60 p-4 space-y-3">
+            <p class="text-xs font-semibold text-zinc-700">สรุปเงื่อนไขก่อนสมัคร (ฉบับย่อ)</p>
+            <ul class="text-[11px] text-zinc-500 leading-relaxed space-y-1 list-disc pl-4">
+              <li>ห้ามใช้บริการเพื่อการผิดกฎหมาย สแปม หลอกลวง หรืออัปโหลดเนื้อหาที่ละเมิดสิทธิผู้อื่น</li>
+              <li>เครดิตในระบบเป็นสิทธิใช้งานภายในแพลตฟอร์ม และอาจไม่สามารถขอคืนเงินได้ตามเงื่อนไข</li>
+              <li>ผู้ให้บริการอาจระงับบัญชีที่ฝ่าฝืนข้อกำหนดเพื่อความปลอดภัยของระบบ</li>
+            </ul>
+            <p class="text-xs text-zinc-500">
+              ดูรายละเอียดเพิ่มเติมที่
+              <a class="text-blue-600 hover:underline" href="/terms">ข้อกำหนดการให้บริการ</a>
+              และ
+              <a class="text-blue-600 hover:underline" href="/privacy">นโยบายความเป็นส่วนตัว</a>
+            </p>
+          </div>
+
+          <div class="pt-2 space-y-3">
+            <button class="w-full py-4 bg-gradient-to-r from-blue-600 to-blue-400 text-white font-bold text-lg rounded-2xl shadow-xl shadow-blue-200 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50" type="submit" disabled>
+              สมัครสมาชิก
+            </button>
+            <p class="mt-4 text-[10px] text-zinc-400 leading-relaxed text-center px-4">
+              หน้านี้ป้องกันด้วย reCAPTCHA และอยู่ภายใต้
+              <a class="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer" href="https://policies.google.com/privacy">นโยบายความเป็นส่วนตัว</a>
+              และ
+              <a class="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer" href="https://policies.google.com/terms">ข้อกำหนดการให้บริการ</a>
+              ของ Google
+            </p>
+          </div>
+        </form>
+
+        <div class="text-center space-y-4">
+          <a class="text-sm font-bold text-blue-500 hover:underline" href="/login">มีบัญชี Fusion อยู่แล้ว? ลงชื่อเข้าใช้</a>
+          <br />
+          <a class="text-[11px] text-zinc-400 font-medium hover:text-zinc-600 transition-colors" href="/">กลับหน้าแรก</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="border-t border-zinc-100 bg-white/80 backdrop-blur-sm mt-auto">
+      <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-zinc-500">
+        <p>© 2026 Fusions. All rights reserved.</p>
+        <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+          <a class="hover:text-zinc-800 transition-colors" href="/terms">Terms</a>
+          <a class="hover:text-zinc-800 transition-colors" href="/privacy">Privacy</a>
+          <a class="hover:text-zinc-800 transition-colors" href="/cookie-policy">Cookies</a>
+          <a class="hover:text-zinc-800 transition-colors" href="/copyright">Copyright</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
