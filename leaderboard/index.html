@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="th" class="h-full antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#6366f1" />
+    <title>อันดับผู้ใช้งาน - Fusions</title>
+    <meta name="description" content="ดูอันดับผู้ใช้งานยอดนิยมของ Fusions จากยอดเข้าชมโปรไฟล์" />
+    <meta property="og:title" content="อันดับผู้ใช้งาน - Fusions" />
+    <meta property="og:description" content="ดูอันดับผู้ใช้งานยอดนิยมของ Fusions จากยอดเข้าชมโปรไฟล์" />
+    <meta property="og:url" content="https://fusions.info/leaderboard" />
+    <meta property="og:site_name" content="Fusions" />
+    <meta property="og:locale" content="th_TH" />
+    <meta property="og:image" content="https://img2.pic.in.th/fusion-6.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Fusions" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="อันดับผู้ใช้งาน - Fusions" />
+    <meta name="twitter:description" content="ดูอันดับผู้ใช้งานยอดนิยมของ Fusions จากยอดเข้าชมโปรไฟล์" />
+    <meta name="twitter:image" content="https://img2.pic.in.th/fusion-6.png" />
+    <link rel="shortcut icon" href="/img/fusion-logo.png" />
+    <link rel="icon" href="/img/fusion-logo.png" />
+    <link rel="apple-touch-icon" href="/img/fusion-logo.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="min-h-full flex flex-col bg-white font-sans">
+    <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-5xl">
+      <div class="bg-white/70 backdrop-blur-xl border border-white/60 rounded-full flex items-center justify-between px-4 md:px-6 py-2.5 shadow-sm">
+        <a class="flex items-center gap-2 shrink-0" href="/" aria-label="Fusions home">
+          <img src="/img/fusion-logo.png" alt="Logo" width="35" height="35" />
+        </a>
+        <div class="hidden lg:flex items-center gap-6">
+          <a class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="/">หน้าหลัก</a>
+          <a class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="/package">แพ็กเกจ</a>
+          <a class="text-zinc-900 transition-colors text-sm font-bold" href="/leaderboard" aria-current="page">อันดับ</a>
+          <a class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="/topup">เติมเงิน</a>
+          <a target="_blank" rel="noopener noreferrer" class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="https://discord.gg/sayabot">ติดต่อเรา</a>
+        </div>
+        <div class="hidden lg:flex items-center gap-2">
+          <a class="text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100/70 rounded-full px-3 py-1.5 transition-all text-sm" href="/login">Login</a>
+          <a class="bg-zinc-900 text-white hover:bg-black rounded-full px-4 py-1.5 transition-all text-sm" href="/register">Register</a>
+        </div>
+        <button class="lg:hidden p-2 text-zinc-600 hover:bg-zinc-100 rounded-full transition-colors" aria-label="Toggle Menu">
+          <span class="block h-0.5 w-6 bg-current mb-1.5"></span>
+          <span class="block h-0.5 w-6 bg-current mb-1.5"></span>
+          <span class="block h-0.5 w-6 bg-current"></span>
+        </button>
+      </div>
+    </nav>
+
+    <main class="min-h-screen bg-white pt-28 pb-20 px-4">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="inline-flex items-center rounded-full border border-indigo-100 bg-indigo-50 px-4 py-1 text-xs font-bold text-indigo-600 mb-5">Fusions Ranking</p>
+          <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-zinc-900 tracking-tight">LEADERBOARD</h1>
+          <p class="text-zinc-400 font-medium mt-3 text-sm sm:text-base">อันดับผู้ใช้งานยอดนิยม</p>
+        </div>
+
+        <section class="grid gap-4 md:grid-cols-3 mb-8" aria-label="อันดับแนะนำ">
+          <article class="md:order-2 rounded-[2rem] border border-yellow-200 bg-gradient-to-b from-yellow-50 to-white p-6 text-center shadow-sm">
+            <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-yellow-400 text-2xl font-black text-white shadow-lg shadow-yellow-200">1</div>
+            <h2 class="text-xl font-black text-zinc-900">รอประกาศอันดับ</h2>
+            <p class="mt-2 text-sm font-medium text-zinc-500">อันดับหนึ่งจากยอด Views สูงสุด</p>
+          </article>
+          <article class="md:order-1 mt-0 md:mt-10 rounded-[2rem] border border-zinc-200 bg-zinc-50 p-6 text-center">
+            <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-zinc-300 text-xl font-black text-white">2</div>
+            <h2 class="text-lg font-black text-zinc-900">รอข้อมูลผู้ใช้</h2>
+            <p class="mt-2 text-sm font-medium text-zinc-500">อันดับสอง</p>
+          </article>
+          <article class="md:order-3 mt-0 md:mt-10 rounded-[2rem] border border-orange-200 bg-orange-50 p-6 text-center">
+            <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-orange-400 text-xl font-black text-white">3</div>
+            <h2 class="text-lg font-black text-zinc-900">รอข้อมูลผู้ใช้</h2>
+            <p class="mt-2 text-sm font-medium text-zinc-500">อันดับสาม</p>
+          </article>
+        </section>
+
+        <section class="rounded-[2rem] border border-zinc-100 bg-white shadow-sm overflow-hidden" aria-label="ตารางอันดับ">
+          <div class="flex items-center justify-between gap-4 border-b border-zinc-100 px-5 py-4">
+            <h2 class="font-black text-zinc-900">อันดับทั้งหมด</h2>
+            <span class="rounded-full bg-zinc-100 px-3 py-1 text-xs font-bold text-zinc-500">อัปเดตเร็ว ๆ นี้</span>
+          </div>
+          <div class="p-8 text-center">
+            <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-zinc-100 text-2xl">🏆</div>
+            <h3 class="text-xl font-black text-zinc-900 mb-2">ยังไม่มีข้อมูลอันดับในขณะนี้</h3>
+            <p class="mx-auto max-w-md text-sm font-medium leading-relaxed text-zinc-500">ระบบจะแสดงรายชื่อผู้ใช้งานยอดนิยมเมื่อมีข้อมูล Views พร้อมใช้งาน โดยหน้านี้จะแสดงผลทันทีและไม่ค้างที่สถานะโหลดอีกต่อไป</p>
+          </div>
+        </section>
+
+        <div class="mt-14 text-center p-8 bg-zinc-50 border border-zinc-100 rounded-3xl">
+          <h3 class="text-xl font-black text-zinc-900 mb-2">ติดอันดับ Leaderboard</h3>
+          <p class="text-zinc-500 font-medium mb-6 text-sm">แชร์โปรไฟล์ของคุณให้คนอื่นเห็น สะสม Views และไต่อันดับ</p>
+          <a class="inline-flex bg-zinc-900 hover:bg-zinc-800 text-white font-bold rounded-xl px-8 py-3 text-sm shadow-md transition-all hover:scale-[1.02]" href="/register">สร้างโปรไฟล์ฟรี</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="border-t border-zinc-100 bg-white/80 backdrop-blur-sm mt-auto">
+      <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-zinc-500">
+        <p>© 2026 Fusions. All rights reserved.</p>
+        <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+          <a class="hover:text-zinc-800 transition-colors" href="/terms">Terms</a>
+          <a class="hover:text-zinc-800 transition-colors" href="/privacy">Privacy</a>
+          <a class="hover:text-zinc-800 transition-colors" href="/cookie-policy">Cookies</a>
+          <a class="hover:text-zinc-800 transition-colors" href="/copyright">Copyright</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
