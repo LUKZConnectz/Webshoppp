@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="th" class="h-full antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#6366f1" />
+    <title>เติมเงิน - Fusions</title>
+    <meta name="description" content="เลือกวิธีการเติมเงินสำหรับบัญชี Fusions ของคุณ" />
+    <meta property="og:title" content="เติมเงิน - Fusions" />
+    <meta property="og:description" content="เลือกวิธีการเติมเงินสำหรับบัญชี Fusions ของคุณ" />
+    <meta property="og:url" content="https://fusions.info/topup" />
+    <meta property="og:site_name" content="Fusions" />
+    <meta property="og:locale" content="th_TH" />
+    <meta property="og:image" content="https://img2.pic.in.th/fusion-6.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Fusions" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="เติมเงิน - Fusions" />
+    <meta name="twitter:description" content="เลือกวิธีการเติมเงินสำหรับบัญชี Fusions ของคุณ" />
+    <meta name="twitter:image" content="https://img2.pic.in.th/fusion-6.png" />
+    <link rel="shortcut icon" href="/img/fusion-logo.png" />
+    <link rel="icon" href="/img/fusion-logo.png" />
+    <link rel="apple-touch-icon" href="/img/fusion-logo.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="min-h-full flex flex-col bg-white font-sans">
+    <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-5xl">
+      <div class="bg-white/70 backdrop-blur-xl border border-white/60 rounded-full flex items-center justify-between px-4 md:px-6 py-2.5 shadow-sm">
+        <a class="flex items-center gap-2 shrink-0" href="/" aria-label="Fusions home">
+          <img src="/img/fusion-logo.png" alt="Logo" width="35" height="35" />
+        </a>
+        <div class="hidden lg:flex items-center gap-6">
+          <a class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="/">หน้าหลัก</a>
+          <a class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="/package">แพ็กเกจ</a>
+          <a class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="/leaderboard">อันดับ</a>
+          <a class="text-zinc-900 transition-colors text-sm font-bold" href="/topup" aria-current="page">เติมเงิน</a>
+          <a target="_blank" rel="noopener noreferrer" class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="https://discord.gg/sayabot">ติดต่อเรา</a>
+        </div>
+        <div class="hidden lg:flex items-center gap-2">
+          <a class="text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100/70 rounded-full px-3 py-1.5 transition-all text-sm" href="/login">Login</a>
+          <a class="bg-zinc-900 text-white hover:bg-black rounded-full px-4 py-1.5 transition-all text-sm" href="/register">Register</a>
+        </div>
+        <button class="lg:hidden p-2 text-zinc-600 hover:bg-zinc-100 rounded-full transition-colors" aria-label="Toggle Menu">
+          <span class="block h-0.5 w-6 bg-current mb-1.5"></span>
+          <span class="block h-0.5 w-6 bg-current mb-1.5"></span>
+          <span class="block h-0.5 w-6 bg-current"></span>
+        </button>
+      </div>
+    </nav>
+
+    <main class="min-h-screen bg-white pt-24 pb-20 px-6">
+      <div class="max-w-4xl mx-auto space-y-8">
+        <div class="space-y-4">
+          <h1 class="text-4xl font-extrabold text-[#1a2b3c] tracking-tight">เติมเงิน</h1>
+          <p class="text-zinc-500 font-medium">เลือกวิธีการเติมเงินที่คุณต้องการ</p>
+        </div>
+
+        <div class="bg-slate-50 border border-zinc-100 rounded-2xl p-6">
+          <p class="text-lg font-bold text-[#1a2b3c]">ยอดเงินในบัญชี: <span class="text-indigo-600">฿0.00</span></p>
+        </div>
+
+        <div class="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-xs text-amber-800 leading-relaxed space-y-1">
+          <p class="font-bold">เงื่อนไขสำคัญก่อนเติมเงิน</p>
+          <p>• เครดิตใช้ได้ภายในระบบเท่านั้น ไม่สามารถถอนเป็นเงินสดหรือโอนออกนอกระบบ</p>
+          <p>• รายการเติมเงินที่สำเร็จแล้วอาจไม่สามารถขอคืนเงินได้ ยกเว้นกรณีระบบผิดพลาดที่ตรวจสอบได้</p>
+          <p>• ใช้งานต่อถือว่ายอมรับ <a class="underline font-semibold" href="/terms">ข้อกำหนดการให้บริการ</a></p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 border border-zinc-100 rounded-3xl overflow-hidden shadow-sm">
+          <section class="p-10 space-y-6 bg-white transition-all hover:bg-zinc-50/50 md:border-r border-b md:border-b-0">
+            <div class="flex items-center gap-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-indigo-500" aria-hidden="true">
+                <rect width="5" height="5" x="3" y="3" rx="1"></rect><rect width="5" height="5" x="16" y="3" rx="1"></rect><rect width="5" height="5" x="3" y="16" rx="1"></rect><path d="M21 16h-3a2 2 0 0 0-2 2v3"></path><path d="M21 21v.01"></path><path d="M12 7v3a2 2 0 0 1-2 2H7"></path><path d="M3 12h.01"></path><path d="M12 3h.01"></path><path d="M12 16v.01"></path><path d="M16 12h1"></path><path d="M21 12v.01"></path><path d="M12 21v-1"></path>
+              </svg>
+              <h2 class="text-2xl font-bold text-[#1a2b3c]">เติมเงิน</h2>
+            </div>
+            <p class="text-zinc-400 text-sm leading-relaxed min-h-[40px]">เติมเงินผ่าน TrueMoney ซองอังเปา หรือ PromptPay โดยสแกน QR และอัปโหลดสลิปเพื่อตรวจสอบอัตโนมัติ</p>
+            <div class="pt-8 border-t border-zinc-50">
+              <a class="flex items-center justify-center gap-2 text-zinc-300 font-bold hover:text-[#1a2b3c] transition-all group" href="/topup/qr">ดำเนินการต่อ
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+              </a>
+            </div>
+          </section>
+
+          <section class="p-10 space-y-6 bg-white transition-all hover:bg-zinc-50/50">
+            <div class="flex items-center gap-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-sky-400" aria-hidden="true">
+                <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"></path><path d="M13 5v2"></path><path d="M13 17v2"></path><path d="M13 11v2"></path>
+              </svg>
+              <h2 class="text-2xl font-bold text-[#1a2b3c]">กรอกโค้ด</h2>
+            </div>
+            <p class="text-zinc-400 text-sm leading-relaxed min-h-[40px]">รับเครดิตเพิ่มด้วยโค้ดกิจกรรมจากระบบ</p>
+            <div class="pt-8 border-t border-zinc-50">
+              <a class="flex items-center justify-center gap-2 text-zinc-300 font-bold hover:text-[#1a2b3c] transition-all group" href="/topup/code">ดำเนินการต่อ
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+              </a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="border-t border-zinc-100 bg-white/80 backdrop-blur-sm mt-auto">
+      <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-zinc-500">
+        <p>© 2026 Fusions. All rights reserved.</p>
+        <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+          <a class="hover:text-zinc-800 transition-colors" href="/terms">Terms</a>
+          <a class="hover:text-zinc-800 transition-colors" href="/privacy">Privacy</a>
+          <a class="hover:text-zinc-800 transition-colors" href="/cookie-policy">Cookies</a>
+          <a class="hover:text-zinc-800 transition-colors" href="/copyright">Copyright</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
