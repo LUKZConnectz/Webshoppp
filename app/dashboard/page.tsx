@@ -11,9 +11,9 @@ export default function MemberDashboard() {
   return <DashboardShell title="Dashboard" eyebrow="ONLINE COURSE" role="member">
     <section className="grid gap-7 pt-8 xl:grid-cols-[minmax(0,1fr)_420px]">
       <div className="min-w-0 space-y-7 overflow-hidden">
-        <div className="hero-card rounded-[1.7rem] bg-[#6d5df6] px-7 py-8 text-white md:px-8 md:py-9">
+        <div className="hero-card rounded-[1.7rem] bg-[#6d5df6] px-7 py-8 text-white shadow-lg shadow-indigo-200/40 md:px-8 md:py-9">
           <p className="text-sm font-medium tracking-[.42em]">ONLINE COURSE</p>
-          <h2 className="mt-5 max-w-3xl text-[2.55rem] font-semibold leading-[1.08] tracking-[-.04em] md:text-[2.9rem]">Sharpen Your Skills with Professional Online Courses</h2>
+          <h2 className="mt-5 max-w-3xl text-[2.65rem] font-semibold leading-[1.05] tracking-[-.055em] md:text-[3.05rem]">Sharpen Your Skills with Professional Online Courses</h2>
           <button className="mt-10 flex items-center gap-4 rounded-full bg-[#111] py-2 pl-7 pr-2 text-base font-semibold">Join Now <span className="grid h-10 w-10 place-items-center rounded-full bg-white text-black"><ArrowRight size={18} /></span></button>
         </div>
 
