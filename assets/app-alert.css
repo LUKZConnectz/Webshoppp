@@ -1,8 +1,8 @@
 .app-alert-container {
   pointer-events: none;
   position: fixed;
-  top: 24px;
   right: 24px;
+  bottom: 24px;
   z-index: 9999;
   display: grid;
   gap: 12px;
@@ -58,8 +58,8 @@
 @keyframes alert-out { to { opacity: 0; transform: translateY(8px) scale(.98); } }
 @media (max-width: 640px) {
   .app-alert-container {
-    top: 16px;
     right: 16px;
+    bottom: 16px;
     left: 16px;
     width: auto;
   }

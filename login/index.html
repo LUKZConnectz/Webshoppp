@@ -59,5 +59,6 @@
         form.addEventListener('submit', (event) => { event.preventDefault(); const login = document.querySelector('#username').value.trim().toLowerCase(); const password = form.querySelector('input[name="password"]').value; const accounts = JSON.parse(localStorage.getItem('pxomxd:accounts') || '[]'); const account = accounts.find((item) => (item.username.toLowerCase() === login || item.email.toLowerCase() === login) && item.password === password); const username = account ? account.username : login || 'user'; if (accounts.length && !account) { window.appAlert({ type: 'error', title: 'เข้าสู่ระบบไม่สำเร็จ', message: 'ชื่อผู้ใช้ อีเมล หรือรหัสผ่านไม่ถูกต้อง' }); return; } localStorage.setItem('pxomxd:user', JSON.stringify({ username, email: account?.email || '' })); renderProfile(username); window.appAlert({ type: 'success', title: 'เข้าสู่ระบบสำเร็จ', message: 'กำลังพาไปหน้าโปรไฟล์...' }); window.setTimeout(() => { window.location.href = '/profile'; }, 500); });
       })();
     </script>
+      <script src="/assets/app-nav.js"></script>
   </body>
 </html>
