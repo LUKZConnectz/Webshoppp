@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="th" class="h-full antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#6366f1" />
+    <title>แดชบอร์ดสมาชิก - PXOMXD</title>
+    <meta name="description" content="แดชบอร์ดสมาชิกสำหรับตั้งค่าข้อมูลส่วนตัว PXOMXD" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <script>tailwind = window.tailwind || {}; tailwind.config = { theme: { extend: { fontFamily: { sans: ['Kanit','sans-serif'] } } } };</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/assets/app-alert.css" />
+    <style>
+      *,*::before,*::after{font-family:'Kanit',sans-serif!important} body{background:#fbfbfd;color:#111113}.soft-card{box-shadow:0 18px 45px rgba(24,24,27,.08),inset 0 0 0 1px rgba(24,24,27,.08)}.icon{background:#f0f0ff;color:#5b4ff0}.nav-active{background:#eff0ff;color:#5b4ff0}.tab-active{color:#111113}.tab-active:after{content:'';position:absolute;left:0;right:0;bottom:-22px;height:4px;border-radius:999px;background:#111113}
+    </style>
+  </head>
+  <body class="min-h-full font-sans">
+    <div class="min-h-screen lg:grid lg:grid-cols-[280px_1fr]">
+      <aside class="fixed inset-x-0 top-0 z-40 border-b border-zinc-200 bg-white/90 backdrop-blur-xl lg:sticky lg:inset-y-0 lg:h-screen lg:border-b-0 lg:border-r">
+        <div class="flex h-full flex-col p-5 lg:p-7">
+          <a href="/" class="flex items-center gap-3 text-2xl font-black text-zinc-950"><span class="grid h-10 w-10 place-items-center rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-500 text-white">P</span>PXOMXD</a>
+          <nav class="mt-6 flex gap-2 overflow-x-auto lg:mt-12 lg:flex-col lg:overflow-visible">
+            <p class="hidden px-4 text-sm font-bold text-zinc-400 lg:block">แดชบอร์ด</p>
+            <a class="nav-active flex min-w-max items-center justify-between gap-3 rounded-3xl px-4 py-3 text-sm font-bold" href="/dashboard"><span>▥ ภาพรวม</span><span>›</span></a>
+            <a class="flex min-w-max items-center gap-3 rounded-3xl px-4 py-3 text-sm font-semibold text-zinc-500 hover:bg-zinc-100" href="#profile-settings">◎ โปรไฟล์</a>
+            <a class="flex min-w-max items-center gap-3 rounded-3xl px-4 py-3 text-sm font-semibold text-zinc-500 hover:bg-zinc-100" href="#links">🔗 ลิงก์</a>
+            <a class="flex min-w-max items-center gap-3 rounded-3xl px-4 py-3 text-sm font-semibold text-zinc-500 hover:bg-zinc-100" href="#appearance">◌ รูปลักษณ์</a>
+            <a class="flex min-w-max items-center gap-3 rounded-3xl px-4 py-3 text-sm font-semibold text-zinc-500 hover:bg-zinc-100" href="#security">⚙ ตั้งค่า</a>
+          </nav>
+          <div class="mt-auto hidden rounded-[1.7rem] border border-zinc-100 bg-white p-3 shadow-sm lg:flex items-center gap-3"><div class="grid h-12 w-12 place-items-center rounded-full bg-zinc-100 text-xl">🧑‍💻</div><div class="min-w-0"><p id="sidebar-name" class="truncate font-bold">member</p><p class="text-xs text-zinc-400">แพ็กเกจฟรี</p></div><button id="logout" class="ml-auto text-zinc-400">↪</button></div>
+        </div>
+      </aside>
+      <main class="px-5 pb-12 pt-32 lg:px-10 lg:pt-10 xl:px-14">
+        <header class="flex flex-col gap-5 xl:flex-row xl:items-center xl:justify-between"><div class="flex items-center gap-4"><span class="icon grid h-14 w-14 place-items-center rounded-3xl text-3xl soft-card">▥</span><div><p class="text-sm font-bold text-indigo-500">Member Dashboard</p><h1 class="text-4xl font-black tracking-tight">Overview</h1></div></div><a href="/admin" class="rounded-full border border-zinc-200 bg-white px-5 py-3 text-sm font-bold text-zinc-600 shadow-sm hover:text-indigo-600">ไปหน้าแอดมิน</a></header>
+        <div class="mt-12 flex gap-8 overflow-x-auto border-b border-zinc-200 pb-5 text-lg font-bold text-zinc-400"><button class="tab-active relative">ภาพรวม</button><button>โปรไฟล์</button><button>รูปลักษณ์</button><button>ลิงก์</button><button>เหรียญตรา</button><button>วิดเจ็ต</button><button>เพลง</button><button>ช่องข้อความ</button></div>
+        <section class="mt-9 grid gap-5 md:grid-cols-2 xl:grid-cols-4"><article class="soft-card rounded-[2rem] bg-white p-7 flex items-center gap-5"><span class="icon grid h-16 w-16 place-items-center rounded-3xl text-3xl">◉</span><div><p class="text-4xl font-black">1</p><p class="font-bold text-zinc-400">ยอดเข้าชมโปรไฟล์</p></div></article><article class="soft-card rounded-[2rem] bg-white p-7 flex items-center gap-5"><span class="icon grid h-16 w-16 place-items-center rounded-3xl text-3xl">🔗</span><div><p id="links-count" class="text-4xl font-black">0</p><p class="font-bold text-zinc-400">ลิงก์ทั้งหมด</p></div></article><article class="soft-card rounded-[2rem] bg-white p-7 flex items-center gap-5"><span class="icon grid h-16 w-16 place-items-center rounded-3xl text-3xl">🛡</span><div><p class="text-4xl font-black">0</p><p class="font-bold text-zinc-400">เหรียญตรา</p></div></article><article class="soft-card rounded-[2rem] bg-white p-7 flex items-center gap-5"><span class="icon grid h-16 w-16 place-items-center rounded-3xl text-3xl">♙</span><div><p class="text-4xl font-black">ฟรี</p><p class="font-bold text-zinc-400">แพ็กเกจปัจจุบัน</p></div></article></section>
+        <section class="mt-8 grid gap-6 xl:grid-cols-[1fr_380px]"><div class="soft-card rounded-[2.2rem] bg-white p-6 md:p-8"><div class="mb-7 flex items-center justify-between"><h2 class="text-2xl font-black">ตั้งค่าข้อมูลส่วนตัว</h2><span class="text-sm font-bold text-zinc-400">สมาชิก</span></div><form id="profile-settings" class="grid gap-4 md:grid-cols-2"><label class="space-y-2 text-sm font-bold text-zinc-500">ชื่อผู้ใช้<input name="username" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-zinc-900 outline-none focus:border-indigo-400" /></label><label class="space-y-2 text-sm font-bold text-zinc-500">อีเมล<input name="email" type="email" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-zinc-900 outline-none focus:border-indigo-400" /></label><label class="space-y-2 text-sm font-bold text-zinc-500 md:col-span-2">ชื่อแสดงผล<input name="displayName" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-zinc-900 outline-none focus:border-indigo-400" /></label><label class="space-y-2 text-sm font-bold text-zinc-500 md:col-span-2">คำอธิบาย<textarea name="bio" rows="5" class="w-full rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-zinc-900 outline-none focus:border-indigo-400"></textarea></label><div id="links" class="md:col-span-2 grid gap-3"><p class="font-black">ลิงก์โซเชียล</p><input name="website" placeholder="https://pxomxd.info/username" class="rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 outline-none focus:border-indigo-400" /><input name="discord" placeholder="Discord URL" class="rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 outline-none focus:border-indigo-400" /></div><button class="md:col-span-2 rounded-2xl bg-indigo-600 px-6 py-4 font-black text-white shadow-xl shadow-indigo-200 hover:bg-indigo-700" type="submit">บันทึกข้อมูลส่วนตัว</button></form></div><aside class="grid gap-6"><div class="soft-card rounded-[2rem] bg-white p-7"><p class="text-4xl">💬</p><h3 class="mt-4 text-xl font-black">เข้าร่วม Discord ของเรา</h3><p class="text-zinc-400">discord.gg</p><a class="mt-6 flex justify-center rounded-2xl bg-indigo-600 px-5 py-4 font-black text-white shadow-lg shadow-indigo-200" href="https://discord.gg/sayabot">เข้าร่วม Discord</a></div><div class="soft-card rounded-[2rem] bg-white p-7"><h3 class="text-xl font-black">👁 โปรไฟล์ของคุณ</h3><p class="mt-8 text-zinc-400">pxomxd.info/<b id="profile-slug" class="text-zinc-900">member</b></p><a class="mt-8 block rounded-2xl border border-zinc-200 bg-zinc-50 px-5 py-4 text-center font-black" href="/profile">ดูโปรไฟล์ ↗</a></div></aside></section>
+      </main>
+    </div>
+    <script src="/assets/app-alert.js"></script><script src="/assets/dashboard.js"></script>
+  </body>
+</html>

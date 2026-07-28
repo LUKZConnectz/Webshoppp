@@ -60,7 +60,7 @@
           <a class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="/">หน้าหลัก</a>
           <a class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="/package">แพ็กเกจ</a>
           <a class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="/leaderboard">อันดับ</a>
-          <a class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="/topup">เติมเงิน</a>
+          <a class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="/topup">เติมเงิน</a><a class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="/dashboard">แดชบอร์ด</a>
           <a target="_blank" rel="noopener noreferrer" class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="https://discord.gg/sayabot">ติดต่อเรา</a>
         </div>
         <div class="hidden lg:flex items-center gap-2" data-auth-actions>
@@ -181,7 +181,7 @@
         };
         const renderProfile = (username) => {
           if (!actions) return;
-          actions.innerHTML = `<a class="flex items-center justify-center bg-zinc-900 text-white hover:bg-black rounded-full w-9 h-9 transition-all" href="/profile" aria-label="Profile" title="Profile"><img src="${userIcon}" alt="" width="16" height="16" class="invert" /></a>`;
+          actions.innerHTML = `<a class="flex items-center justify-center bg-zinc-900 text-white hover:bg-black rounded-full w-9 h-9 transition-all" href="/dashboard" aria-label="Dashboard" title="Dashboard"><img src="${userIcon}" alt="" width="16" height="16" class="invert" /></a>`;
         };
         const session = localStorage.getItem('pxomxd:user');
         if (session) renderProfile(JSON.parse(session).username || 'user');
