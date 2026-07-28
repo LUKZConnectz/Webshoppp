@@ -60,7 +60,7 @@
           <a class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="/">หน้าหลัก</a>
           <a class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="/package">แพ็กเกจ</a>
           <a class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="/leaderboard">อันดับ</a>
-          <a class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="/topup">เติมเงิน</a><a class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="/dashboard">แดชบอร์ด</a>
+          <a class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="/topup">เติมเงิน</a>
           <a target="_blank" rel="noopener noreferrer" class="text-zinc-600 hover:text-zinc-900 transition-colors text-sm font-medium" href="https://discord.gg/sayabot">ติดต่อเรา</a>
         </div>
         <div class="hidden lg:flex items-center gap-2" data-auth-actions>
@@ -161,7 +161,7 @@
         </div>
       </div>
     </footer>
-    <script src="/assets/app-alert.js"></script>
+    <script src="/assets/app-alert.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="/assets/supabase-backend.js"></script>
     <script>
       (function pxomxdAuth() {
         const form = document.querySelector('#register-form');
@@ -172,39 +172,16 @@
         const passwordInput = document.querySelector('#register-password');
         const confirmPasswordInput = document.querySelector('#register-confirm-password');
         const strength = document.querySelector('#password-strength');
-        const userIcon = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyLjI1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXVzZXItaWNvbiBsdWNpZGUtdXNlciI+PHBhdGggZD0iTTE5IDIxdi0yYTQgNCAwIDAgMC00LTRIOWE0IDQgMCAwIDAtNCA0djIiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjciIHI9IjQiLz48L3N2Zz4=';
-        const getAccounts = () => JSON.parse(localStorage.getItem('pxomxd:accounts') || '[]');
-        const setMessage = (text, isError = true) => {
-          message.textContent = text;
-          message.className = `rounded-2xl px-4 py-3 text-sm font-medium ${isError ? 'border border-red-200 bg-red-50 text-red-600' : 'border border-green-200 bg-green-50 text-green-700'}`;
-          window.appAlert({ type: isError ? 'error' : 'success', title: isError ? 'สมัครสมาชิกไม่สำเร็จ' : 'สมัครสมาชิกสำเร็จ', message: text });
-        };
-        const renderProfile = (username) => {
-          if (!actions) return;
-          actions.innerHTML = `<a class="flex items-center justify-center bg-zinc-900 text-white hover:bg-black rounded-full w-9 h-9 transition-all" href="/dashboard" aria-label="Dashboard" title="Dashboard"><img src="${userIcon}" alt="" width="16" height="16" class="invert" /></a>`;
-        };
-        const session = localStorage.getItem('pxomxd:user');
-        if (session) renderProfile(JSON.parse(session).username || 'user');
-        passwordInput.addEventListener('input', () => {
-          const value = passwordInput.value;
-          const score = [value.length >= 6, /[A-Z]/.test(value), /[0-9]/.test(value), /[^A-Za-z0-9]/.test(value)].filter(Boolean).length;
-          strength.querySelectorAll('div').forEach((bar, index) => { bar.className = `h-1.5 flex-1 rounded-full transition-all ${index < score + 1 && value ? 'bg-blue-500' : 'bg-zinc-200'}`; });
-          strength.querySelector('span').textContent = value ? ['อ่อนมาก', 'พอใช้', 'ดี', 'แข็งแรง', 'แข็งแรงมาก'][score] : 'กรอกรหัสผ่าน';
-        });
-        form.addEventListener('submit', (event) => {
+        const setMessage = (text, isError = true) => { message.textContent = text; message.className = `rounded-2xl px-4 py-3 text-sm font-medium ${isError ? 'border border-red-200 bg-red-50 text-red-600' : 'border border-green-200 bg-green-50 text-green-700'}`; window.appAlert({ type: isError ? 'error' : 'success', title: isError ? 'สมัครสมาชิกไม่สำเร็จ' : 'สมัครสมาชิกสำเร็จ', message: text }); };
+        const renderProfile = (session) => { if (!actions) return; actions.innerHTML = `<a class="flex items-center justify-center bg-zinc-900 text-white hover:bg-black rounded-full w-9 h-9 transition-all" href="/profile" aria-label="Profile" title="Profile"><span aria-hidden="true">${session?.role === 'admin' ? '🛡️' : '👤'}</span></a>`; };
+        const session = localStorage.getItem('pxomxd:user') || localStorage.getItem('pxomxd:admin');
+        if (session) renderProfile(JSON.parse(session));
+        passwordInput.addEventListener('input', () => { const value = passwordInput.value; const score = [value.length >= 6, /[A-Z]/.test(value), /[0-9]/.test(value), /[^A-Za-z0-9]/.test(value)].filter(Boolean).length; strength.querySelectorAll('div').forEach((bar, index) => { bar.className = `h-1.5 flex-1 rounded-full transition-all ${index < score + 1 && value ? 'bg-blue-500' : 'bg-zinc-200'}`; }); strength.querySelector('span').textContent = value ? ['อ่อนมาก', 'พอใช้', 'ดี', 'แข็งแรง', 'แข็งแรงมาก'][score] : 'กรอกรหัสผ่าน'; });
+        form.addEventListener('submit', async (event) => {
           event.preventDefault();
-          const username = usernameInput.value.trim().toLowerCase();
-          const email = emailInput.value.trim().toLowerCase();
-          const password = passwordInput.value;
-          const accounts = getAccounts();
+          const username = usernameInput.value.trim().toLowerCase(); const email = emailInput.value.trim().toLowerCase(); const password = passwordInput.value;
           if (password !== confirmPasswordInput.value) { setMessage('รหัสผ่านและยืนยันรหัสผ่านไม่ตรงกัน'); return; }
-          if (accounts.some((account) => account.username.toLowerCase() === username || account.email.toLowerCase() === email)) { setMessage('ชื่อผู้ใช้หรืออีเมลนี้ถูกใช้แล้ว'); return; }
-          const user = { username, email, password, createdAt: new Date().toISOString() };
-          localStorage.setItem('pxomxd:accounts', JSON.stringify([...accounts, user]));
-          localStorage.setItem('pxomxd:user', JSON.stringify({ username, email }));
-          setMessage('สมัครสมาชิกสำเร็จ กำลังพาไปหน้าโปรไฟล์...', false);
-          renderProfile(username);
-          window.setTimeout(() => { window.location.href = '/profile'; }, 500);
+          try { const user = await window.pxomxdBackend.register({ username, email, password, role: 'user' }); localStorage.setItem('pxomxd:user', JSON.stringify({ id: user.id, username, email, role: 'user' })); setMessage('สมัครสมาชิกสำเร็จ กำลังพาไปหน้าโปรไฟล์...', false); renderProfile(user); window.setTimeout(() => { window.location.href = '/profile'; }, 500); } catch (error) { setMessage(error.message); }
         });
       })();
     </script>
