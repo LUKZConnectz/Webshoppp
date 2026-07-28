@@ -1,4 +1,5 @@
 (function initMemberDashboard() {
+  if (window.lucide) window.lucide.createIcons();
   const session = JSON.parse(localStorage.getItem('pxomxd:user') || 'null');
   if (!session) { window.location.href = '/login'; return; }
   const accounts = JSON.parse(localStorage.getItem('pxomxd:accounts') || '[]');
@@ -23,5 +24,6 @@
     document.querySelector('#profile-slug').textContent = updated.username;
     document.querySelector('#links-count').textContent = [updated.profile.website, updated.profile.discord].filter(Boolean).length;
     window.appAlert({ type: 'success', title: 'บันทึกสำเร็จ', message: 'อัปเดตข้อมูลส่วนตัวของสมาชิกเรียบร้อยแล้ว' });
+    if (window.lucide) window.lucide.createIcons();
   });
 }());
