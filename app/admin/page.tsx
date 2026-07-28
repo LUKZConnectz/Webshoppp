@@ -1,0 +1,17 @@
+import { Users, WalletCards, Link as LinkIcon } from 'lucide-react';
+import { DashboardShell, StatCard } from '../components/DashboardShell';
+
+export default function AdminDashboard() {
+  const actions = <div className="flex flex-wrap gap-3"><a href="/profile" className="rounded-full border border-white/80 bg-white/80 px-5 py-3 text-sm font-black text-slate-600 shadow-sm">โปรไฟล์แอดมิน</a><button id="seed-demo" className="rounded-full bg-slate-950 px-5 py-3 text-sm font-black text-white shadow-sm">เพิ่มข้อมูลตัวอย่าง</button></div>;
+  return <DashboardShell title="Members Control" eyebrow="Admin Dashboard" role="admin" actions={actions}>
+    <section className="mt-10 grid gap-5 md:grid-cols-3">
+      <StatCard label="สมาชิกทั้งหมด" value="0" valueId="total-members" icon={<Users size={28} />} />
+      <StatCard label="แพ็กเกจฟรี" value="0" valueId="free-members" icon={<WalletCards size={28} />} />
+      <StatCard label="ลิงก์รวม" value="0" valueId="total-links" icon={<LinkIcon size={28} />} />
+    </section>
+    <section className="mt-8 grid gap-6 xl:grid-cols-[1fr_420px]">
+      <div className="glass-card overflow-hidden rounded-[2.25rem]"><div className="border-b border-slate-200/70 p-6"><h2 className="text-2xl font-black">รายชื่อสมาชิก</h2><p className="font-semibold text-slate-400">เลือกสมาชิกเพื่อแก้ไขข้อมูลด้านขวา</p></div><div className="overflow-x-auto"><table className="w-full min-w-[720px] text-left"><thead className="bg-white/50 text-sm text-slate-400"><tr><th className="p-4">ผู้ใช้</th><th className="p-4">อีเมล</th><th className="p-4">แพ็กเกจ</th><th className="p-4">สร้างเมื่อ</th><th className="p-4"></th></tr></thead><tbody id="member-rows" className="divide-y divide-slate-100"></tbody></table></div></div>
+      <aside className="glass-card rounded-[2.25rem] p-6"><h2 className="text-2xl font-black">แก้ไขข้อมูลสมาชิก</h2><p className="mb-6 font-semibold text-slate-400">ข้อมูลจะถูกบันทึกผ่าน Supabase หรือ localStorage สำรอง</p><form id="admin-edit" className="grid gap-4"><input name="selected" type="hidden" /><label className="space-y-2 text-sm font-bold text-slate-500">ชื่อผู้ใช้<input name="username" required className="w-full rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 outline-none focus:border-indigo-400" /></label><label className="space-y-2 text-sm font-bold text-slate-500">อีเมล<input name="email" type="email" required className="w-full rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 outline-none focus:border-indigo-400" /></label><label className="space-y-2 text-sm font-bold text-slate-500">แพ็กเกจ<select name="plan" className="w-full rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 outline-none focus:border-indigo-400"><option>ฟรี</option><option>โปร</option><option>แอดวานซ์</option></select></label><label className="space-y-2 text-sm font-bold text-slate-500">ชื่อแสดงผล<input name="displayName" className="w-full rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 outline-none focus:border-indigo-400" /></label><label className="space-y-2 text-sm font-bold text-slate-500">Bio<textarea name="bio" rows={4} className="w-full rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 outline-none focus:border-indigo-400" /></label><button className="rounded-2xl bg-indigo-600 px-6 py-4 font-black text-white shadow-xl shadow-indigo-200" type="submit">บันทึกสมาชิก</button></form></aside>
+    </section>
+  </DashboardShell>;
+}
