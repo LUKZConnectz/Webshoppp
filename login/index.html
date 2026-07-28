@@ -70,7 +70,7 @@
             const session = await window.pxomxdBackend.login({ login: cleanLogin, password, role });
             renderProfile(session);
             window.appAlert({ type: 'success', title: 'เข้าสู่ระบบสำเร็จ', message: 'กำลังพาไปหน้าโปรไฟล์...' });
-            window.setTimeout(() => { window.location.href = '/profile'; }, 500);
+            window.setTimeout(() => { window.location.href = session.role === 'admin' ? '/admin' : '/profile'; }, 500);
           } catch (error) {
             window.appAlert({ type: 'error', title: 'เข้าสู่ระบบไม่สำเร็จ', message: error.message });
           }
