@@ -54,7 +54,7 @@
         const renderProfile = (username) => { actions.innerHTML = `<a class="flex items-center gap-2 bg-zinc-900 text-white hover:bg-black rounded-full px-4 py-1.5 transition-all text-sm" href="/profile"><img src="${userIcon}" alt="" width="16" height="16" class="invert" />Profile: ${username}</a>`; };
         const existing = localStorage.getItem('pxomxd:user');
         if (existing) renderProfile(JSON.parse(existing).username || 'user');
-        form.addEventListener('submit', (event) => { event.preventDefault(); const username = document.querySelector('#username').value.trim() || 'user'; localStorage.setItem('pxomxd:user', JSON.stringify({ username })); renderProfile(username); window.location.href = '/profile'; });
+        form.addEventListener('submit', (event) => { event.preventDefault(); const login = document.querySelector('#username').value.trim().toLowerCase(); const password = form.querySelector('input[name="password"]').value; const accounts = JSON.parse(localStorage.getItem('pxomxd:accounts') || '[]'); const account = accounts.find((item) => (item.username.toLowerCase() === login || item.email.toLowerCase() === login) && item.password === password); const username = account ? account.username : login || 'user'; if (accounts.length && !account) { alert('ชื่อผู้ใช้ อีเมล หรือรหัสผ่านไม่ถูกต้อง'); return; } localStorage.setItem('pxomxd:user', JSON.stringify({ username, email: account?.email || '' })); renderProfile(username); window.location.href = '/profile'; });
       })();
     </script>
   </body>

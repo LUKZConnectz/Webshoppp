@@ -85,16 +85,16 @@
           <p class="text-zinc-500 font-medium">สร้างโปรไฟล์ของคุณเพื่อเริ่มใช้งาน</p>
         </div>
 
-        <form class="space-y-6" action="#" method="post">
+        <form id="register-form" class="space-y-6">
           <div class="space-y-4">
             <div class="space-y-1.5">
-              <input type="text" name="username" placeholder="ชื่อผู้ใช้" required minlength="3" maxlength="20" pattern="^[a-z0-9_]{3,20}$" title="3-20 ตัว a-z, 0-9, _ เท่านั้น" class="w-full px-5 py-3.5 rounded-2xl border border-zinc-200 bg-zinc-50/30 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-all text-sm" />
+              <input id="register-username" type="text" name="username" placeholder="ชื่อผู้ใช้" required minlength="3" maxlength="20" pattern="^[a-z0-9_]{3,20}$" title="3-20 ตัว a-z, 0-9, _ เท่านั้น" class="w-full px-5 py-3.5 rounded-2xl border border-zinc-200 bg-zinc-50/30 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-all text-sm" />
               <p class="text-xs text-zinc-400 px-2">* 3-20 ตัว (a-z, 0-9, _ เท่านั้น) ไม่ซ้ำแบบไม่สนตัวพิมพ์ใหญ่-เล็ก</p>
             </div>
-            <input type="email" name="email" placeholder="อีเมล" required class="w-full px-5 py-3.5 rounded-2xl border border-zinc-200 bg-zinc-50/30 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-all text-sm" />
+            <input id="register-email" type="email" name="email" placeholder="อีเมล" required class="w-full px-5 py-3.5 rounded-2xl border border-zinc-200 bg-zinc-50/30 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-all text-sm" />
             <div class="space-y-3 relative">
-              <input type="password" name="password" placeholder="รหัสผ่าน (อย่างน้อย 6 ตัวอักษร)" required minlength="6" class="w-full px-5 py-3.5 rounded-2xl border border-zinc-200 bg-zinc-50/30 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-all text-sm" />
-              <div class="flex items-center justify-between gap-1.5 px-1" aria-hidden="true">
+              <input id="register-password" type="password" name="password" placeholder="รหัสผ่าน (อย่างน้อย 6 ตัวอักษร)" required minlength="6" class="w-full px-5 py-3.5 rounded-2xl border border-zinc-200 bg-zinc-50/30 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-all text-sm" />
+              <div id="password-strength" class="flex items-center justify-between gap-1.5 px-1" aria-hidden="true">
                 <div class="h-1.5 flex-1 rounded-full transition-all bg-zinc-200"></div>
                 <div class="h-1.5 flex-1 rounded-full transition-all bg-zinc-200"></div>
                 <div class="h-1.5 flex-1 rounded-full transition-all bg-zinc-200"></div>
@@ -103,12 +103,14 @@
                 <span class="text-[10px] text-zinc-400 font-bold ml-2 shrink-0">กรอกรหัสผ่าน</span>
               </div>
             </div>
-            <input type="password" name="confirm-password" placeholder="ยืนยันรหัสผ่าน" required minlength="6" class="w-full px-5 py-3.5 rounded-2xl border border-zinc-200 bg-zinc-50/30 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-all text-sm" />
+            <input id="register-confirm-password" type="password" name="confirm-password" placeholder="ยืนยันรหัสผ่าน" required minlength="6" class="w-full px-5 py-3.5 rounded-2xl border border-zinc-200 bg-zinc-50/30 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-all text-sm" />
           </div>
 
           <div class="flex justify-center">
             <div id="recaptcha-register" class="flex justify-center"></div>
           </div>
+
+          <p id="register-message" class="hidden rounded-2xl px-4 py-3 text-sm font-medium" role="status" aria-live="polite"></p>
 
           <div class="rounded-2xl border border-zinc-200 bg-zinc-50/60 p-4 space-y-3">
             <p class="text-xs font-semibold text-zinc-700">สรุปเงื่อนไขก่อนสมัคร (ฉบับย่อ)</p>
@@ -126,7 +128,7 @@
           </div>
 
           <div class="pt-2 space-y-3">
-            <button class="w-full py-4 bg-gradient-to-r from-blue-600 to-blue-400 text-white font-bold text-lg rounded-2xl shadow-xl shadow-blue-200 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50" type="submit" disabled>
+            <button class="w-full py-4 bg-gradient-to-r from-blue-600 to-blue-400 text-white font-bold text-lg rounded-2xl shadow-xl shadow-blue-200 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50" id="register-submit" type="submit">
               สมัครสมาชิก
             </button>
             <p class="mt-4 text-[10px] text-zinc-400 leading-relaxed text-center px-4">
@@ -160,11 +162,47 @@
     </footer>
     <script>
       (function pxomxdAuth() {
+        const form = document.querySelector('#register-form');
         const actions = document.querySelector('[data-auth-actions]');
+        const message = document.querySelector('#register-message');
+        const usernameInput = document.querySelector('#register-username');
+        const emailInput = document.querySelector('#register-email');
+        const passwordInput = document.querySelector('#register-password');
+        const confirmPasswordInput = document.querySelector('#register-confirm-password');
+        const strength = document.querySelector('#password-strength');
+        const userIcon = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyLjI1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXVzZXItaWNvbiBsdWNpZGUtdXNlciI+PHBhdGggZD0iTTE5IDIxdi0yYTQgNCAwIDAgMC00LTRIOWE0IDQgMCAwIDAtNCA0djIiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjciIHI9IjQiLz48L3N2Zz4=';
+        const getAccounts = () => JSON.parse(localStorage.getItem('pxomxd:accounts') || '[]');
+        const setMessage = (text, isError = true) => {
+          message.textContent = text;
+          message.className = `rounded-2xl px-4 py-3 text-sm font-medium ${isError ? 'border border-red-200 bg-red-50 text-red-600' : 'border border-green-200 bg-green-50 text-green-700'}`;
+        };
+        const renderProfile = (username) => {
+          if (!actions) return;
+          actions.innerHTML = `<a class="flex items-center gap-2 bg-zinc-900 text-white hover:bg-black rounded-full px-4 py-1.5 transition-all text-sm" href="/profile"><img src="${userIcon}" alt="" width="16" height="16" class="invert" />Profile: ${username}</a>`;
+        };
         const session = localStorage.getItem('pxomxd:user');
-        if (!actions || !session) return;
-        const username = JSON.parse(session).username || 'user';
-        actions.innerHTML = `<a class="flex items-center gap-2 bg-zinc-900 text-white hover:bg-black rounded-full px-4 py-1.5 transition-all text-sm" href="/profile"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyLjI1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXVzZXItaWNvbiBsdWNpZGUtdXNlciI+PHBhdGggZD0iTTE5IDIxdi0yYTQgNCAwIDAgMC00LTRIOWE0IDQgMCAwIDAtNCA0djIiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjciIHI9IjQiLz48L3N2Zz4=" alt="" width="16" height="16" class="invert" />Profile: ${username}</a>`;
+        if (session) renderProfile(JSON.parse(session).username || 'user');
+        passwordInput.addEventListener('input', () => {
+          const value = passwordInput.value;
+          const score = [value.length >= 6, /[A-Z]/.test(value), /[0-9]/.test(value), /[^A-Za-z0-9]/.test(value)].filter(Boolean).length;
+          strength.querySelectorAll('div').forEach((bar, index) => { bar.className = `h-1.5 flex-1 rounded-full transition-all ${index < score + 1 && value ? 'bg-blue-500' : 'bg-zinc-200'}`; });
+          strength.querySelector('span').textContent = value ? ['อ่อนมาก', 'พอใช้', 'ดี', 'แข็งแรง', 'แข็งแรงมาก'][score] : 'กรอกรหัสผ่าน';
+        });
+        form.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const username = usernameInput.value.trim().toLowerCase();
+          const email = emailInput.value.trim().toLowerCase();
+          const password = passwordInput.value;
+          const accounts = getAccounts();
+          if (password !== confirmPasswordInput.value) { setMessage('รหัสผ่านและยืนยันรหัสผ่านไม่ตรงกัน'); return; }
+          if (accounts.some((account) => account.username.toLowerCase() === username || account.email.toLowerCase() === email)) { setMessage('ชื่อผู้ใช้หรืออีเมลนี้ถูกใช้แล้ว'); return; }
+          const user = { username, email, password, createdAt: new Date().toISOString() };
+          localStorage.setItem('pxomxd:accounts', JSON.stringify([...accounts, user]));
+          localStorage.setItem('pxomxd:user', JSON.stringify({ username, email }));
+          setMessage('สมัครสมาชิกสำเร็จ กำลังพาไปหน้าโปรไฟล์...', false);
+          renderProfile(username);
+          window.setTimeout(() => { window.location.href = '/profile'; }, 500);
+        });
       })();
     </script>
   </body>
