@@ -70,6 +70,30 @@
     if (normalizedRole === 'user') localStorage.setItem(storageKeys.userSession, JSON.stringify(session));
     return session;
   }
+  async function deleteAccount(accountOrId) {
+    const accountId = typeof accountOrId === 'string' ? accountOrId : accountOrId?.id;
+    if (!accountId) throw new Error('ไม่พบรหัสบัญชีที่ต้องการลบ');
+    if (seededAccounts.some((seeded) => seeded.id === accountId)) throw new Error('ไม่สามารถลบบัญชีเริ่มต้นของระบบได้');
+    if (client) {
+      const { error } = await client.from(table).delete().eq('id', accountId);
+      if (!error) {
+        Object.values(storageKeys).forEach((key) => {
+          const session = JSON.parse(localStorage.getItem(key) || 'null');
+          if (session?.id === accountId) localStorage.removeItem(key);
+        });
+        return true;
+      }
+      console.warn('Supabase deleteAccount failed, falling back to localStorage:', error.message);
+    }
+    const accounts = localAccounts();
+    const nextAccounts = accounts.filter((account) => (account.id || `${normalizeRole(account.role)}:${account.email || account.username}`) !== accountId);
+    saveLocalAccounts(nextAccounts);
+    Object.values(storageKeys).forEach((key) => {
+      const session = JSON.parse(localStorage.getItem(key) || 'null');
+      if (session?.id === accountId) localStorage.removeItem(key);
+    });
+    return nextAccounts.length !== accounts.length;
+  }
   async function saveAccount(updated) {
     if (client) {
       const payload = { username: updated.username, email: updated.email, role: normalizeRole(updated.role), plan: updated.plan || 'ฟรี', profile: updated.profile || {} };
@@ -85,5 +109,5 @@
     saveLocalAccounts(accounts);
     return publicAccount(next);
   }
-  window.pxomxdBackend = { listAccounts, register, login, saveAccount, roleKey, isSupabaseEnabled: hasSupabase };
+  window.pxomxdBackend = { listAccounts, register, login, saveAccount, deleteAccount, roleKey, isSupabaseEnabled: hasSupabase };
 }());
