@@ -24,10 +24,10 @@ export function DashboardShell({ title, eyebrow, role, children, actions }: { ti
   const friends = role === 'admin' ? ['ทีมผู้ดูแล', 'ฝ่ายคอนเทนต์', 'ฝ่ายซัพพอร์ต'] : ['Bagas Mahpie', 'Sir Dandy', 'Jhon Tosan'];
 
   return (
-    <div className="min-h-screen bg-[#b8bfc7] px-4 py-6 text-[#111] md:px-10 xl:px-[5vw] xl:py-[5.5vh]">
-      <div className="mx-auto grid h-auto min-h-[min(1200px,89vh)] max-w-[1710px] overflow-hidden rounded-[26px] bg-[#f5f6fb] shadow-2xl shadow-slate-700/20 lg:grid-cols-[276px_1fr] xl:rounded-[28px]">
+    <div className="min-h-screen bg-[#b8c0c8] px-4 py-6 text-[#111] md:px-10 xl:px-[5vw] xl:py-[5.5vh]">
+      <div className="mx-auto grid h-auto min-h-[min(1200px,89vh)] max-w-[1710px] overflow-hidden rounded-[26px] bg-[#f6f7fc] shadow-2xl shadow-slate-700/20 lg:grid-cols-[276px_1fr] xl:rounded-[28px]">
         <aside className="flex flex-col gap-11 bg-white px-6 py-8 lg:px-11 lg:py-11">
-          <a href="/" className="flex items-center gap-3 text-[1.7rem] font-semibold tracking-[-.05em]"><span className="grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-[#6d5df6] to-[#38bdf8] text-white">P</span>PXOMXD</a>
+          <a href="/" className="flex items-center gap-3 text-[1.7rem] font-semibold tracking-[-.05em]"><span className="grid h-10 w-10 place-items-center rounded-full bg-[#6d5df6] text-white">✦</span>{role === 'admin' ? 'PXOMXD' : 'Coursue'}</a>
           <nav className="flex gap-2 overflow-x-auto lg:flex-col lg:gap-4 lg:overflow-visible">
             <p className="hidden pt-10 text-xs font-medium uppercase tracking-wide text-zinc-400 lg:block">OVERVIEW</p>
             {nav.map((item) => <a key={item.label} className={`nav-pill flex min-w-max items-center gap-3 rounded-2xl px-3 py-2.5 text-[1.35rem] font-semibold tracking-[-.06em] ${item.active ? 'text-[#161616]' : 'text-zinc-500 hover:bg-[#f5f6fb] hover:text-[#6d5df6]'}`} href={item.href}>{item.icon}{item.label}</a>)}
@@ -46,7 +46,7 @@ export function DashboardShell({ title, eyebrow, role, children, actions }: { ti
         </aside>
         <main className="min-w-0 px-5 py-7 md:px-8 lg:px-9">
           <header className="grid gap-5 xl:grid-cols-[1fr_auto] xl:items-center">
-            <div className="rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-bold text-emerald-700 shadow-sm xl:col-span-2">อัปเดตหน้าแดชบอร์ดแล้ว • เวอร์ชัน 2026-07-28</div><div className="relative max-w-[910px]"><Search className="absolute left-5 top-1/2 -translate-y-1/2 text-zinc-400" size={22} /><input className="h-14 w-full rounded-full border border-zinc-200 bg-white px-14 text-lg outline-none placeholder:text-zinc-400" placeholder={role === 'admin' ? 'ค้นหาสมาชิกหรือคอร์ส...' : 'Search your course....'} /></div>
+            <div className="relative max-w-[910px]"><Search className="absolute left-5 top-1/2 -translate-y-1/2 text-zinc-400" size={22} /><input className="h-14 w-full rounded-full border border-zinc-200 bg-white px-14 text-lg outline-none placeholder:text-zinc-400" placeholder={role === 'admin' ? 'ค้นหาสมาชิกหรือคอร์ส...' : 'Search your course....'} /></div>
             <div className="flex items-center gap-4">{actions}<button className="grid h-14 w-14 place-items-center rounded-full border border-zinc-200 bg-[#f7f8fd]"><Inbox size={19} /></button><button className="grid h-14 w-14 place-items-center rounded-full border border-zinc-200 bg-[#f7f8fd]"><Bell size={19} /></button><span className="h-14 w-px bg-zinc-300" /><Avatar seed={role === 'admin' ? 9 : 4} /><div><p id="sidebar-name" className="text-lg font-semibold">{role === 'admin' ? 'Admin' : 'Jason Ranti'}</p></div></div>
           </header>
           <div className="sr-only"><p>{eyebrow}</p><h1>{title}</h1></div>
