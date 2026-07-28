@@ -10,8 +10,30 @@
   const table = config.table || 'profiles';
   const normalizeRole = (role) => (role === 'admin' ? 'admin' : 'user');
   const roleKey = (role) => (normalizeRole(role) === 'admin' ? storageKeys.adminSession : storageKeys.userSession);
-  const localAccounts = () => JSON.parse(localStorage.getItem(storageKeys.accounts) || '[]').map((account) => ({ id: account.id || `${normalizeRole(account.role)}:${account.username || account.email}`, role: normalizeRole(account.role), plan: account.plan || 'ฟรี', profile: account.profile || {}, ...account }));
-  const saveLocalAccounts = (accounts) => localStorage.setItem(storageKeys.accounts, JSON.stringify(accounts));
+  const seededAccounts = [
+    {
+      id: 'admin:lukzconnectz@gmail.com',
+      username: 'lukzconnectz',
+      email: 'lukzconnectz@gmail.com',
+      password: '789090Xd',
+      role: 'admin',
+      plan: 'แอดมิน',
+      createdAt: '2026-07-28T00:00:00.000Z',
+      profile: { displayName: 'Lukzconnectz Admin', bio: 'บัญชีผู้ดูแลระบบ PXOMXD' },
+    },
+  ];
+  const localAccounts = () => {
+    const storedAccounts = JSON.parse(localStorage.getItem(storageKeys.accounts) || '[]');
+    const merged = [...seededAccounts];
+    storedAccounts.forEach((account) => {
+      const id = account.id || `${normalizeRole(account.role)}:${account.email || account.username}`;
+      const index = merged.findIndex((seeded) => seeded.id === id);
+      const normalizedAccount = { id, role: normalizeRole(account.role), plan: account.plan || 'ฟรี', profile: account.profile || {}, ...account };
+      if (index >= 0) merged[index] = { ...merged[index], ...normalizedAccount }; else merged.push(normalizedAccount);
+    });
+    return merged.map((account) => ({ id: account.id || `${normalizeRole(account.role)}:${account.email || account.username}`, role: normalizeRole(account.role), plan: account.plan || 'ฟรี', profile: account.profile || {}, ...account }));
+  };
+  const saveLocalAccounts = (accounts) => localStorage.setItem(storageKeys.accounts, JSON.stringify(accounts.filter((account) => !seededAccounts.some((seeded) => seeded.id === account.id))));
   const publicAccount = (account) => ({ ...account, password: undefined });
   async function listAccounts(role) {
     if (client) {
