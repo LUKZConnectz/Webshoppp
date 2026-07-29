@@ -1,73 +1,56 @@
 'use client';
 
 import Script from 'next/script';
-import { Bell, BookOpenCheck, Inbox, LayoutDashboard, LogOut, Search, Settings, Shield, UsersRound, WalletCards } from 'lucide-react';
+import { BarChart3, BadgeCheck, Blocks, Eye, Link, LogOut, Music2, Palette, Settings, Shield, UserRound, Users, WalletCards } from 'lucide-react';
 import type { ReactNode } from 'react';
 
 type NavItem = { label: string; href: string; icon: ReactNode; active?: boolean };
 
 export function DashboardShell({ title, eyebrow, role, children, actions }: { title: string; eyebrow: string; role: 'member' | 'admin'; children: ReactNode; actions?: ReactNode }) {
   const memberNav: NavItem[] = [
-    { label: 'Dashboard', href: '/dashboard', icon: <LayoutDashboard size={20} />, active: true },
-    { label: 'Inbox', href: '#inbox', icon: <Inbox size={20} /> },
-    { label: 'Lesson', href: '#lessons', icon: <BookOpenCheck size={20} /> },
-    { label: 'Task', href: '#tasks', icon: <WalletCards size={20} /> },
-    { label: 'Group', href: '#group', icon: <UsersRound size={20} /> },
+    { label: 'ภาพรวม', href: '/dashboard', icon: <BarChart3 size={20} />, active: true },
+    { label: 'โปรไฟล์', href: '#profile-settings', icon: <UserRound size={20} /> },
+    { label: 'รูปลักษณ์', href: '#appearance', icon: <Palette size={20} /> },
+    { label: 'ลิงก์', href: '#links', icon: <Link size={20} /> },
+    { label: 'เหรียญตรา', href: '#badges', icon: <BadgeCheck size={20} /> },
+    { label: 'วิดเจ็ต', href: '#widgets', icon: <Blocks size={20} /> },
+    { label: 'เพลง', href: '#songs', icon: <Music2 size={20} /> },
+    { label: 'ตั้งค่า', href: '#security', icon: <Settings size={20} /> },
   ];
   const adminNav: NavItem[] = [
-    { label: 'Dashboard', href: '/admin', icon: <LayoutDashboard size={20} />, active: true },
-    { label: 'Inbox', href: '#inbox', icon: <Inbox size={20} /> },
-    { label: 'Lesson', href: '#lessons', icon: <BookOpenCheck size={20} /> },
-    { label: 'Task', href: '#tasks', icon: <WalletCards size={20} /> },
-    { label: 'Group', href: '#group', icon: <UsersRound size={20} /> },
+    { label: 'สมาชิก', href: '/admin', icon: <Shield size={20} />, active: true },
+    { label: 'ดูโปรไฟล์', href: '/profile', icon: <Eye size={20} /> },
   ];
   const nav = role === 'admin' ? adminNav : memberNav;
-  const friends = ['Bagas Mahpie', 'Sir Dandy', 'Jhon Tosan'];
 
   return (
-    <div className="min-h-screen bg-[#b8c0c8] px-4 py-6 text-[#111] md:px-10 xl:px-[5vw] xl:py-[5.5vh]">
-      <div className="mx-auto grid h-auto min-h-[min(1200px,89vh)] max-w-[1710px] overflow-hidden rounded-[26px] bg-[#f6f7fc] shadow-2xl shadow-slate-700/20 lg:grid-cols-[276px_1fr] xl:rounded-[28px]">
-        <aside className="flex flex-col gap-11 bg-white px-6 py-8 lg:px-11 lg:py-11">
-          <a href="/" className="flex items-center gap-3 text-[1.7rem] font-semibold tracking-[-.05em]"><span className="grid h-10 w-10 place-items-center rounded-full bg-[#6d5df6] text-white">✦</span>Coursue</a>
-          <nav className="flex gap-2 overflow-x-auto lg:flex-col lg:gap-4 lg:overflow-visible">
-            <p className="hidden pt-10 text-xs font-medium uppercase tracking-wide text-zinc-400 lg:block">OVERVIEW</p>
-            {nav.map((item) => <a key={item.label} className={`nav-pill flex min-w-max items-center gap-3 rounded-2xl px-3 py-2.5 text-[1.35rem] font-semibold tracking-[-.06em] ${item.active ? 'text-[#161616]' : 'text-zinc-500 hover:bg-[#f5f6fb] hover:text-[#6d5df6]'}`} href={item.href}>{item.icon}{item.label}</a>)}
+    <div className="dashboard-bg min-h-screen lg:grid lg:grid-cols-[292px_1fr]">
+      <aside className="fixed inset-x-0 top-0 z-40 border-b border-white/70 bg-white/80 backdrop-blur-2xl lg:sticky lg:inset-y-0 lg:h-screen lg:border-b-0 lg:border-r">
+        <div className="flex h-full flex-col gap-6 p-5 lg:p-7">
+          <a href="/" className="flex items-center gap-3 text-2xl font-black tracking-tight text-slate-950"><span className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-indigo-500 via-violet-500 to-sky-400 text-white shadow-xl shadow-indigo-200">P</span>PXOMXD</a>
+          <nav className="flex gap-2 overflow-x-auto pb-1 lg:flex-col lg:overflow-visible">
+            <p className="hidden px-4 text-xs font-black uppercase tracking-[.22em] text-slate-400 lg:block">{role === 'admin' ? 'Admin' : 'Dashboard'}</p>
+            {nav.map((item) => <a key={item.label} className={`nav-pill flex min-w-max items-center gap-3 rounded-3xl px-4 py-3 text-sm font-bold ${item.active ? 'bg-slate-950 text-white shadow-lg shadow-slate-200' : 'text-slate-500 hover:bg-white hover:text-indigo-600'}`} href={item.href}>{item.icon}{item.label}</a>)}
           </nav>
-          <section className="hidden lg:block">
-            <p className="mb-5 text-xs font-medium uppercase tracking-wide text-zinc-400">FRIENDS</p>
-            <div className="grid gap-6">
-              {friends.map((friend, index) => <div key={friend} className="flex items-center gap-4"><Avatar seed={index + (role === 'admin' ? 5 : 1)} /><div><p className="font-semibold tracking-[-.04em]">{friend}</p><p className="text-sm text-zinc-400">{index === 1 ? 'Old Friend' : 'Friend'}</p></div></div>)}
-            </div>
-          </section>
-          <div className="mt-auto flex gap-3 overflow-x-auto lg:block lg:space-y-4">
-            <p className="hidden text-xs font-medium uppercase tracking-wide text-zinc-400 lg:block">SETTINGS</p>
-            <a className="flex min-w-max items-center gap-3 rounded-2xl px-3 py-3 text-lg font-semibold" href="#settings"><Settings size={21} />Setting</a>
-            <button id="logout" className="flex min-w-max items-center gap-3 rounded-2xl px-3 py-3 text-lg font-semibold text-orange-500" type="button"><LogOut size={21} />Logout</button>
+          <div className="mt-auto hidden rounded-[1.75rem] border border-white/80 bg-white/75 p-3 shadow-sm lg:flex lg:items-center lg:gap-3">
+            <div className="grid h-12 w-12 place-items-center rounded-2xl bg-indigo-50 text-xl">{role === 'admin' ? '🛡️' : '🧑‍💻'}</div>
+            <div className="min-w-0"><p id="sidebar-name" className="truncate font-black">{role === 'admin' ? 'Admin' : 'member'}</p><p className="text-xs font-bold text-slate-400">{role === 'admin' ? 'จัดการสมาชิก' : 'แพ็กเกจฟรี'}</p></div>
+            {role === 'member' && <button id="logout" className="ml-auto rounded-2xl p-2 text-slate-400 hover:bg-slate-100" aria-label="ออกจากระบบ"><LogOut size={20} /></button>}
           </div>
-        </aside>
-        <main className="min-w-0 px-5 py-7 md:px-8 lg:px-9">
-          <header className="grid gap-5 xl:grid-cols-[1fr_auto] xl:items-center">
-            <div className="relative max-w-[910px]"><Search className="absolute left-5 top-1/2 -translate-y-1/2 text-zinc-400" size={22} /><input className="h-14 w-full rounded-full border border-zinc-200 bg-white px-14 text-lg outline-none placeholder:text-zinc-400" placeholder={role === 'admin' ? 'ค้นหาสมาชิกหรือคอร์ส...' : 'Search your course....'} /></div>
-            <div className="flex items-center gap-4">{actions}<button className="grid h-14 w-14 place-items-center rounded-full border border-zinc-200 bg-[#f7f8fd]"><Inbox size={19} /></button><button className="grid h-14 w-14 place-items-center rounded-full border border-zinc-200 bg-[#f7f8fd]"><Bell size={19} /></button><span className="h-14 w-px bg-zinc-300" /><Avatar seed={role === 'admin' ? 9 : 4} /><div><p id="sidebar-name" className="text-lg font-semibold">Jason Ranti</p></div></div>
-          </header>
-          <div className="sr-only"><p>{eyebrow}</p><h1>{title}</h1></div>
-          {children}
-          <Script src="/assets/app-alert.js" strategy="afterInteractive" />
-          <Script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" strategy="afterInteractive" />
-          <Script src="/assets/supabase-backend.js" strategy="afterInteractive" />
-          <Script src={role === 'admin' ? '/assets/admin-dashboard.js' : '/assets/dashboard.js'} strategy="afterInteractive" />
-        </main>
-      </div>
+        </div>
+      </aside>
+      <main className="px-5 pb-12 pt-32 lg:px-10 lg:pt-10 xl:px-14">
+        <header className="flex flex-col gap-5 xl:flex-row xl:items-center xl:justify-between"><div><p className="text-sm font-black uppercase tracking-[.24em] text-indigo-500">{eyebrow}</p><h1 className="mt-2 text-4xl font-black tracking-tight text-slate-950 md:text-6xl">{title}</h1></div>{actions}</header>
+        {children}
+      </main>
+      <Script src="/assets/app-alert.js" strategy="afterInteractive" />
+      <Script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" strategy="afterInteractive" />
+      <Script src="/assets/supabase-backend.js" strategy="afterInteractive" />
+      <Script src={role === 'admin' ? '/assets/admin-dashboard.js' : '/assets/dashboard.js'} strategy="afterInteractive" />
     </div>
   );
 }
 
-export function Avatar({ seed = 1, className = '' }: { seed?: number; className?: string }) {
-  const faces = ['👨🏻‍🎓', '👩🏻‍💻', '🧑🏻‍🏫', '🤓', '👨🏻‍💼', '👩🏻‍🎨', '🧑🏻‍🚀', '👨🏻‍🍳', '🧑🏻‍💼'];
-  return <span className={`grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#eee7ff] text-2xl ${className}`}>{faces[seed % faces.length]}</span>;
-}
-
-export function MiniStat({ label, value, tone = 'purple', icon = '✣' }: { label: string; value: string; tone?: 'purple' | 'pink' | 'blue'; icon?: string }) {
-  const tones = { purple: 'bg-[#ebe7ff] text-[#6d5df6]', pink: 'bg-[#ffe7fb] text-[#e652d0]', blue: 'bg-[#e5f6ff] text-[#45b6e8]' };
-  return <article className="flex items-center gap-4 rounded-[1.45rem] bg-white px-4 py-3 shadow-sm"><span className={`grid h-16 w-16 place-items-center rounded-full text-2xl ${tones[tone]}`}>{icon}</span><div><p className="text-zinc-400">{value}</p><h3 className="text-xl font-semibold tracking-[-.06em]">{label}</h3></div><span className="ml-auto text-2xl text-zinc-400">⋮</span></article>;
+export function StatCard({ label, value, icon, valueId }: { label: string; value: string; icon: ReactNode; valueId?: string }) {
+  return <article className="stat-card glass-card rounded-[2rem] p-6"><div className="flex items-center justify-between"><span className="grid h-14 w-14 place-items-center rounded-2xl bg-indigo-50 text-indigo-600">{icon}</span><span className="rounded-full bg-white px-3 py-1 text-xs font-black text-emerald-600">LIVE</span></div><p id={valueId} className="mt-8 text-4xl font-black text-slate-950">{value}</p><p className="mt-2 font-bold text-slate-400">{label}</p></article>;
 }
